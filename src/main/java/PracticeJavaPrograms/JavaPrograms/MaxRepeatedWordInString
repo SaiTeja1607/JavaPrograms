@@ -1,0 +1,36 @@
+
+import java.util.Arrays;
+class MaxRepeatedWordInString {
+    public static void main(String[] args) {
+        String name = "Book and the and any any any the and book it any, beg";
+        String[] words = name.split(" ");
+        
+         for(int i=0; i<words.length; i++)
+        {
+            words[i]=words[i].replace(",", "");
+        }
+    
+        String maxWord="";
+        int maxTimes=1;
+        for(int i=0; i<words.length; i++)
+        {
+        
+        int occ=0;
+        for(int j=0; j<words.length; j++)
+        {
+            if(words[i].equalsIgnoreCase(words[j]))
+            {
+                occ++;
+            }
+        }
+        if(maxTimes<occ)
+        {
+            maxTimes=occ;
+            maxWord=words[i];
+        }
+            
+        }
+        System.out.println(maxWord+" repeated "+maxTimes+" times");
+        System.out.println(Arrays.toString(words));
+    }
+}
